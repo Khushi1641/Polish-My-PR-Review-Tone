@@ -1,4 +1,4 @@
-# 💅 Polish My Tone - Chrome Extension
+# Polish My Tone - Chrome Extension
 
 An AI-powered Chrome extension that acts as an emotionally intelligent code reviewer. It automatically monitors GitHub Pull Request text areas and uses Google's Gemini AI to suggest friendlier, more constructive versions of your PR comments while preserving the core technical feedback.
 
@@ -14,7 +14,6 @@ An AI-powered Chrome extension that acts as an emotionally intelligent code revi
 
 **Frontend (Chrome Extension)**
 * **Library:** React 18
-* **Build Tool:** Vite (configured for multiple entry points: popup and content script)
 * **Extension API:** Manifest V3
 
 **Backend (API Proxy)**
