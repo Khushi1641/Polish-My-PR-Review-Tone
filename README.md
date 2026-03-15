@@ -5,7 +5,7 @@ An AI-powered Chrome extension that acts as an emotionally intelligent code revi
 ## ✨ Features
 
 * **Seamless GitHub Integration:** Automatically detects `<textarea>` inputs on `https://github.com/*` using a `MutationObserver`.
-* **Real-time AI Suggestions:** Analyzes your comment while you type (with a smart 2-second debounce to prevent API spam) and fetches polished alternatives.
+* **Real-time AI Suggestions:** Analyzes your comment while you type (with a 2-second debounce to prevent API spam) and fetches polished alternatives.
 * **In-Line React UI:** Injects a clean React component directly below the comment box with the suggested text.
 * **Actionable Controls:** Easily **Retry** to generate a new suggestion or **Close** the UI when you are done.
 * **Lightweight Java Backend:** Uses a custom built-in Java HTTP server to securely interact with the Google GenAI API (Gemini 2.5 Flash).
@@ -31,13 +31,13 @@ Follow these steps to run the backend, build the frontend, and install the exten
 The Java server acts as a secure proxy to communicate with the Gemini API.
 
 1. Ensure you have Java installed on your machine.
-2. Set up your Google Gemini API credentials. The backend relies on the default `GEMINI_API_KEY` environment variable on your system.
+2. Set up your Google Gemini API credentials. The backend relies on the default `GEMINI_API_KEY` environment variable.
 3. Compile and run the `Main.java` file.
 4. You should see the following message in your terminal indicating the server is alive:
    ```text
    ✅ Polish server running at http://localhost:3000
 
-### 2. Frontend Setup (React/Vite)
+### 2. Frontend Setup (React)
 
 The frontend contains two Vite configurations (one for the popup and one for the injected content script) that need to be built into the same directory.
 
