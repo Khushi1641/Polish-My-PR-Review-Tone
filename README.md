@@ -14,7 +14,7 @@ Same point. Better delivery.
 
 ## 🎬 Demo
 
-![Demo](./Demo.mp4)
+https://github.com/user-attachments/assets/1570a291-f5a3-415e-89da-a5cae22266a8
 
 ## 🤔 Why?
 
