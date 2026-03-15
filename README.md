@@ -12,11 +12,11 @@ An AI-powered Chrome extension that acts as an emotionally intelligent code revi
 
 ## 🛠️ Tech Stack
 
-**Frontend (Chrome Extension)**
+**Frontend**
 * **Library:** React 18
 * **Extension API:** Manifest V3
 
-**Backend (API Proxy)**
+**Backend**
 * **Language:** Java
 * **Server:** `com.sun.net.httpserver` (Native Java HTTP Server)
 * **AI Integration:** Google GenAI SDK (`gemini-2.5-flash`)
