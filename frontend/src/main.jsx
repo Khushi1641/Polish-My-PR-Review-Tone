@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import Suggestion from './Suggestion';
 import './styles.css';
 
-const endpoint = "http://localhost:3000/polish";
+const endpoint = "http://localhost:3000/api/polish";
 
 async function fetchPolishedComment(text) {
   try {

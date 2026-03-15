@@ -38,6 +38,17 @@
 }
 
 .popup-status-indicator {
-  color: #1a7f37;
   font-weight: 600;
+}
+
+.popup-status-indicator.status-running {
+  color: #1a7f37;
+}
+
+.popup-status-indicator.status-checking {
+  color: #9a6700;
+}
+
+.popup-status-indicator.status-offline {
+  color: #cf222e;
 }

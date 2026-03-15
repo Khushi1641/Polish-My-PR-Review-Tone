@@ -35,7 +35,8 @@ The Java server acts as a secure proxy to communicate with the Gemini API.
 3. Compile and run the `Main.java` file.
 4. You should see the following message in your terminal indicating the server is alive:
    ```text
-   ✅ Polish server running at http://localhost:3000
+   Polish server running at http://localhost:3000 (model=gemini-2.5-flash)
+
 
 ### 2. Frontend Setup (React)
 
