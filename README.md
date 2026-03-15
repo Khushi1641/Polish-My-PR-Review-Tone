@@ -14,7 +14,7 @@ Same point. Better delivery.
 
 ## 🎬 Demo
 
-<video src="Demo.mp4" controls width="100%"></video>
+![Demo](./Demo.mp4)
 
 ## 🤔 Why?
 
