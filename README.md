@@ -14,7 +14,7 @@ Same point. Better delivery.
 
 ## 🎬 Demo
 
-<!-- Add demo video/gif here -->
+<video src="Demo.mp4" controls width="100%"></video>
 
 ## 🤔 Why?
 
