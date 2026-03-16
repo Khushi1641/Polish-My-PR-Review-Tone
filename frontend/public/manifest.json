@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Polish My Tone",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "128": "icon-128.png"
+    }
+  },
+  "description": "Suggests emotionally intelligent polish for PR comments on GitHub.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://github.com/*", "http://localhost:3000/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "icon-128.png"
+  }
+}

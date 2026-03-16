@@ -1,69 +1,64 @@
-# Polish My Tone - Chrome Extension
+# ✨ Polish My Tone
 
-An AI-powered Chrome extension that acts as an emotionally intelligent code reviewer. It automatically monitors GitHub Pull Request text areas and uses Google's Gemini AI to suggest friendlier, more constructive versions of your PR comments while preserving the core technical feedback.
+We've all been there - you're deep in a code review, you type out honest feedback, and later realize it came across way harsher than you meant. Rewording takes time, and sometimes you just don't know how to say it better.
 
-## ✨ Features
+Polish My Tone is a Chrome extension that fixes this. It sits inside GitHub's PR comment boxes, watches what you type, and suggests a friendlier version of your comment - keeping all the technical feedback intact. Think of it as a tone filter for code reviews.
 
-* **Seamless GitHub Integration:** Automatically detects `<textarea>` inputs on `https://github.com/*` using a `MutationObserver`.
-* **Real-time AI Suggestions:** Analyzes your comment while you type (with a 2-second debounce to prevent API spam) and fetches polished alternatives.
-* **In-Line React UI:** Injects a clean React component directly below the comment box with the suggested text.
-* **Actionable Controls:** Easily **Retry** to generate a new suggestion or **Close** the UI when you are done.
-* **Lightweight Java Backend:** Uses a custom built-in Java HTTP server to securely interact with the Google GenAI API (Gemini 2.5 Flash).
+**😬 Type this:**
+> "This code is terrible, rewrite the whole thing."
 
-## 🛠️ Tech Stack
+**✨ Get this:**
+> "There are a few areas here that could use some restructuring - happy to walk through some ideas if that'd help!"
 
-**Frontend**
-* **Library:** React 18
-* **Extension API:** Manifest V3
+Same point. Better delivery.
 
-**Backend**
-* **Language:** Java
-* **Server:** `com.sun.net.httpserver` (Native Java HTTP Server)
-* **AI Integration:** Google GenAI SDK (`gemini-2.5-flash`)
-* **JSON Parsing:** Google Gson
+## 🎬 Demo
 
-## 🚀 Getting Started
+https://github.com/user-attachments/assets/1570a291-f5a3-415e-89da-a5cae22266a8
 
-Follow these steps to run the backend, build the frontend, and install the extension into your browser.
+## 🤔 Why?
 
-### 1. Backend Setup (Java)
+- Harsh PR comments kill motivation. Nobody writes their best code after being told their work is "terrible."
+- You shouldn't have to spend 5 minutes rephrasing every comment just to not sound rude.
+- Better tone → fewer conflicts → stronger teams. It's that simple.
 
-The Java server acts as a secure proxy to communicate with the Gemini API.
+## 🛠 Setup
 
-1. Ensure you have Java installed on your machine.
-2. Set up your Google Gemini API credentials. The backend relies on the default `GEMINI_API_KEY` environment variable.
-3. Compile and run the `Main.java` file.
-4. You should see the following message in your terminal indicating the server is alive:
-   ```text
-   ✅ Polish server running at http://localhost:3000
+You'll need **Java 17+** and **Node.js 24** installed.
 
-### 2. Frontend Setup (React)
+### Backend
 
-The frontend contains two Vite configurations (one for the popup and one for the injected content script) that need to be built into the same directory.
+The backend is a lightweight Java HTTP server that talks to the Gemini API.
 
-1. Open a new terminal and navigate to your frontend directory.
-2. Install the project dependencies: npm install
-3. Build the extension files: npm run build. This generates a dist folder containing your manifest.json, index.html, content.js, and compiled CSS.
+```bash
+# set your Gemini API key
+export GEMINI_API_KEY=<your-key>
+```
 
-### 3. Loading the Extension into Chrome
+Compile and run the `Main.java` file. The server will start at `http://localhost:3000`.
 
-Once the frontend is built, you need to load that dist folder into your browser.
+### Frontend
 
-1. Open Google Chrome and navigate to chrome://extensions/ in your URL bar.
-2. Turn on Developer mode using the toggle switch in the top right corner.
-3. Click the Load unpacked button that appears in the top left.
-4. Select the dist folder that was just generated inside your frontend directory.
-5. Make sure the extension is enabled (the toggle switch on the extension card should be blue).
+```bash
+# from the frontend/ directory
+npm install
+npm run build
+```
 
-### 4. How to Use
+This creates a `dist/` folder with the extension files.
 
-1. Ensure your Java backend is actively running.
-2. Navigate to any GitHub Pull Request (e.g., https://github.com/owner/repo/pull/1).
-3. Type a comment that is at least 10 characters long into the PR review box.
-4. Wait 2 seconds, and the React UI will appear below the box with a polished suggestion.
+### Load it in Chrome
 
-## 🐞 Troubleshooting
+1. Go to `chrome://extensions`
+2. Enable **Developer mode** (top-right toggle)
+3. Click **Load unpacked** → select the `frontend/dist` folder
 
-- No suggestions appearing? Ensure the Java backend is running on localhost:3000. The frontend content script attempts to fetch from this exact endpoint.
-- 500 Internal Server Error: Check the Java terminal logs. This usually indicates an issue reaching the Gemini API (e.g., missing API key or network issues) or malformed JSON payload.
-- UI Not Injecting: Refresh the GitHub page. Single-page application (SPA) navigation in GitHub sometimes requires the MutationObserver to re-attach.
+Open any GitHub PR, type a comment (10+ chars), and wait a couple seconds. A polished suggestion appears right below your text box. Hit use it or retry for a different take.
+
+## ⚙️ Tech Stack
+
+| Layer | Tech |
+|-------|------|
+| Extension | Manifest V3, React 18 |
+| Backend | Java |
+| AI | Google Gemini 2.5 Flash |
